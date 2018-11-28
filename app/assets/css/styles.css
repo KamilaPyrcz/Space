@@ -1,5 +1,13 @@
 /*General Styles*/
 
+@font-face {
+    font-family: 'aileronsregular';
+    src: url('../fonts/ailerons/ailerons-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,9 +15,8 @@
 }
 
 html {
-    font: normal 16px sans-serif;
+    font: bold 18px 'Oswald', sans-serif;
     color: #555;
-
 }
 
 ul {
@@ -17,6 +24,8 @@ ul {
 }
 
 a {
+    position:relative;
+    z-index:10;
     text-decoration: none;
     opacity: 0.75;
     color: #f2f2f2;
@@ -31,7 +40,8 @@ a.btn {
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
-    background-color: #494a68;
+    background-color: #0E1122;
+    box-shadow: 0px 6px 20px -5px rgb(14,17,34, 0.8);
     opacity: 1;
 }
 
@@ -40,6 +50,7 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 100px 80px;
+    
 }
 
 section:not(.hero):nth-child(even) {
@@ -63,7 +74,8 @@ hr {
 
 section h3.title {
     text-transform: capitalize;
-    font: bold 32px "Open Sans", sans-serif;
+    font-family: "aileronsregular";
+    font-size: 32px;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -83,7 +95,6 @@ section p {
 }
 
 /*Navbar Styles*/
-
 nav {
     position: fixed;
     width: 100%;
@@ -97,6 +108,11 @@ nav {
     opacity: 0;
     color: #f2f2f2;
 }
+.scrolledback {
+    animation: 0.4s fadein forwards;
+    transition: all 5ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  
+}
 
 @keyframes fadein {
     100% {
@@ -105,11 +121,12 @@ nav {
 }
 
 nav h2 {
-    font-family: "Quicksand", sans-serif;
+    font-family: "aileronsregular";
 }
 
 nav div {
     display: flex;
+    font-family: "aileronsregular";
     margin-right: -15px;
 }
 
@@ -129,15 +146,13 @@ nav div {
     }
 }
  .scrolled {
-    background:rgba(73, 74, 105, 0.7);
-    animation: 0.4s navOpacity forwards;
+    background: rgb(14,17,34, 0.8);
+    animation: 0.3s navOpacity forwards;
     animation-timing-function: easeOutQuint;
     padding: 12px 100px 12px;
-    box-shadow: 0px 6px 20px -5px rgba(73, 74, 105, 0.7);
+    box-shadow: 0px 6px 20px -5px rgb(14,17,34, 0.8);
  }
- .scrolled a {
-    color: #36364C;
- }
+
 
  @keyframes navOpacity {
     100% {
@@ -145,14 +160,16 @@ nav div {
     }
 }
 
+ /* ////// MAIN PAGE ////// */
+
 /*Hero Styles*/
 
 .hero {
-    position: relative;
     justify-content: center;
     text-align: center;
     min-height: 100vh;
     color: #f2f2f2;
+    overflow: hidden;
 }
 .hero .background-image {
     position: absolute;
@@ -166,12 +183,12 @@ nav div {
 }
 
 .hero h1{
-    font: bold 60px "Open Sans", sans-serif;
+    font: bold 65px "aileronsregular";
     margin-bottom: 15px;
 }
 
 .hero h3 {
-    font: normal 28px "Open Sans", sans-serif;
+    font: normal 30px "aileronsregular";
     margin-bottom: 40px;
 }
 
@@ -182,7 +199,7 @@ nav div {
 .hero-content-area {
     opacity: 0;
     margin-top: 100px;
-    animation: 1s slidefade 1s forwards;
+    animation: 1s slidefade 0.7s forwards;
 }
 
 @keyframes slidefade {
@@ -210,6 +227,7 @@ nav div {
 /* Destinations Section */
 
 .destinations .grid li {
+    display: block;
     height: 350px;
     padding: 20px;
     background-clip: content-box;
@@ -293,15 +311,16 @@ nav div {
     }
 }
 
-/* Footer Section */
+/* ////// FOOTER SECTION ////// */
 
 footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #6A6A83;
+    background-color: #0E1122;
     color: #fff;
-    padding: 20px 0;
+    padding: 12px 0;
+    font-weight: normal;
 }
 
 footer ul {
@@ -338,4 +357,167 @@ footer p {
     footer ul {
         margin: 0;
     }
+}
+
+/* ////// TOURS PAGE ////// */
+.tourshero {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    padding: 56px 0 0 0;
+    overflow: hidden;
+}
+
+.tourshero h1 {
+    order: 2;
+    font: bold 60px "aileronsregular";
+    margin-top: 80px;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: 1s tourslidefade 0.4s forwards;
+}
+
+@keyframes tourslidefade {
+    100% {
+        margin-top: 30px;
+        opacity: 1;
+    }
+}
+
+.tours-offer {
+    display: flex; 
+    position: relative;
+    flex-direction: row; 
+    justify-content: center;
+    flex-grow: 2;
+    max-width: 100%;
+    height: 100%;
+}
+
+.tours-offer-background {
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+    animation: 1s upslidebackground 0.4s forwards;
+}
+
+@keyframes upslidebackground {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+/* Table Filter*/
+.tours-table-filter{
+    display: flex; 
+    flex-direction: column; 
+    flex-wrap: no-wrap;
+    align-self: flex-start;
+    height: 50%;
+    width: 10%;
+    background-color: #0E1122;
+    margin-right: 10px;
+    border-top: 1px solid #5D5D77;
+    border-bottom: 1px solid #5D5D77;
+    border-radius: 3px;
+    padding-bottom: 9px;
+}
+.each-filter-box{
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: no-wrap;
+}
+
+.each-filter { 
+    background-color: #0E1122;
+    border: none;
+    border-top: 1px solid #5D5D77;
+    border-bottom: 1px solid #5D5D77;
+    border-radius: 3px;
+    padding: 14px 0px;
+    margin: 5px 4px;
+}
+
+.each-filter label {
+    font-size: 15px;
+    display: block;
+    text-align: left;
+    padding: 0 0 8px 5px;
+}
+
+
+/* Tours Table */
+.tours-table {
+    display: flex; 
+    flex-direction: column; 
+    flex-wrap: no-wrap;
+    align-self: flex-start;
+    width: 40%;
+    padding-bottom: 9px;
+    background-color: #0E1122;
+    border-top: 1px solid #5D5D77;
+    border-bottom: 1px solid #5D5D77;
+    border-radius: 3px;
+
+}
+
+.table-header {
+    display: flex;   
+    justify-content: space-around;       
+    flex-direction: row;    
+    flex-wrap: no-wrap;  
+    padding: 20px 0px;
+    font: medium 20px 'Oswald', sans-serif;
+}
+
+.each-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    width: 110px;
+    padding-left: 5px;
+}
+.fas {
+    font-size: 23px;
+    width: auto;
+    align-self: flex-end;
+    padding: 0px 0px 2px 5px;
+    color:#2E3354;
+}
+
+.sort-on {
+    color:#DDDDDD;
+}
+
+.each-trip {
+    display: flex;
+    flex-direction: column;  
+    flex-wrap: no-wrap;   
+    color:#DDDDDD;
+    font: medium 15px 'Oswald', sans-serif;
+}
+.trip {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around; 
+    background-color: #141728;
+    border-top: 1px solid #5D5D77;
+    border-bottom: 1px solid #5D5D77;
+    border-radius: 3px;
+    padding: 12px 0px;
+    margin: 5px 4px;
+}
+.trip .property {
+    width: 108px;
 }

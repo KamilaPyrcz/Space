@@ -1,0 +1,44 @@
+[
+        {
+            "destination": "Mars",
+            "data": "February 2019",
+            "type": "Guided Trip",
+            "price": "7000$"
+        },
+        {
+            "destination": "Mars",
+            "data": "January 2019",
+            "type": "Photo Trip",
+            "price": "5000$"
+        },
+        {
+            "destination": "Mars",
+            "data": "January 2019",
+            "type": "Low orbit Trip",
+            "price": "5000$"
+        },
+        {
+            "destination": "Mars",
+            "data": "May 2019",
+            "type": "Racing Trip",
+            "price": "9000$"
+        },
+        {
+            "destination": "Venus",
+            "data": "January 2019",
+            "type": "Guided Trip",
+            "price": "8000$"
+        },
+        {
+            "destination": "Venus",
+            "data": "March 2019",
+            "type": "Photo Trip",
+            "price": "6000$"
+        },
+        {
+            "destination": "Venus",
+            "data": "March 2019",
+            "type": "Low orbit Trip",
+            "price": "6000$"
+        }
+]

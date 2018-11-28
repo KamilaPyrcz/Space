@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space Travel</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets\css\styles.css">
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <header>
+        <nav>
+            <h2><a href="/">Space Travel</a></h2>
+            <div>
+                <li><a href="/tours">Tours</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </div>
+        </nav>
+    </header>
+    <!-- Error Template -->
+    <script id="error-template" type="text/x-handlebars-template">
+       <div>
+        <h1>{{title}}</h1>
+        <h2>{{message}}</h2>
+       </div>
+      </script>
+
+    <!-- HomePage -->
+    <script id="home-template" type="text/x-handlebars-template">
+            <section class="hero">
+                <div class="background-image" style="background-image: url(assets/img/main.jpg);"></div>
+                <div class="hero-content-area">
+                    <h1>Space Travel</h1>
+                    <h3>Unmissable Adventure: "Where no man has gone before"</h3>
+                    <a href="#" class="btn">Contact Us Now</a>
+                </div>
+            </section>
+
+            <section class="destinations">
+                <h3 class="title">Some of our destinations:</h3>
+                <p>"The first of these factors is the compelling urge of man to explore and to discover, the thrust of
+                    curiosity that leads men to try to go where no one has gone before. Most of the surface of the
+                    earth has now been explored and men now turn to the exploration of outer space as their next
+                    objective."</p>
+                <p class=quote></p>
+                <hr>
+
+                <ul class="grid">
+                    <li class="small" style="background-image: url(assets/img/space1.jpg);"></li>
+                    <li class="large" style="background-image: url(assets/img/space2.jpg);"></li>
+                    <li class="large" style="background-image: url(assets/img/space3.jpg);"></li>
+                    <li class="small" style="background-image: url(assets/img/space4.jpg);"></li>
+                </ul>
+            </section>
+
+            <section class="packages">
+                <h3 class="title">Tour Packages</h3>
+                <p>We're crossing the boundaries between science fiction and reality, and what we're seeing in the
+                    movies are becoming your memorable family holidays.</p>
+                <hr>
+
+                <ul class="grid">
+                    <li>
+                        <i class="far fa-compass fa-4x"></i>
+                        <h4>Guided Trips</h4>
+                        <p>Looking for the complete experience? Take a tour with one of our experts. They'll show you
+                            secrets that you're likely to miss otherwise.</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-camera-retro fa-4x"></i>
+                        <h4>Photo Trips</h4>
+                        <p>Want to experience nature's beauty without all of that annoying exercise? Take a photo tour
+                            on one of our space cruiser.</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-space-shuttle fa-4x"></i>
+                        <h4>Low orbit Trips</h4>
+                        <p>Looking for an absolute place to escape the chaos in the city to feel so peaceful for a
+                            while here gazing at a natural phenomenon you can’t see at home.</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-rocket fa-4x"></i>
+                        <h4>Racing Trips</h4>
+                        <p>Got a competitive spirit? Sign up for one of our space race! Try to reach the summit before
+                            anyone else.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="contact">
+                <h3 class="title">Learn more</h3>
+                <p>Want to know about our upcoming space-related events, or come to one of our mixers? Just sign up for
+                    our mailing list. No spam from us, we promise! Except for the spam we give you to keep up your
+                    energy while you're rush through the cosmos. We have tons of that.</p>
+                <hr>
+                <form>
+                    <input type="email" placeholder="Email">
+                    <a href="#" class="btn">Subscribe now!</a>
+                </form>
+            </section>
+        </script>
+
+    <!--Tours-->
+    <script id="tours-template" type="text/x-handlebars-template">
+        <section class="hero tourshero">
+            <div class="background-image" style="background-image: url(assets/img/main.jpg);"></div>
+            <h1>Available Trips</h1>
+            <div class="tours-offer">
+                <div class="tours-offer-background"></div>
+                <div class="tours-table-filter">
+                    <form>
+                        <fieldset class="each-filter" id="destination">
+                            <legend>Destinations</legend>
+                            <label>
+                                <input type="checkbox" value="Mars">
+                                <span>Mars</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Venus">
+                                <span>Venus</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Mercury">
+                                <span>Mercury</span>
+                            </label>
+                        </fieldset>
+                        <fieldset class="each-filter" id="type">
+                            <legend >Types</legend>
+                            <label>
+                                <input type="checkbox" value="Guided Trip">
+                                <span>Guided Trips</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Racing Trip">
+                                <span>Racing Trips</span>
+                            </label>
+                            <label>
+                                <input type="checkbox"  value="Photo Trip">
+                                <span>Photo Trips</span>
+                            </label>
+                            <label>
+                                <input type="checkbox"  value="Low orbit Trip">
+                                <span>Low orbit Trips</span>
+                            </label>
+                        </fieldset>
+                        <fieldset class="each-filter">
+                            <legend class="filter-category">Price</legend>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tours-table">
+                    <div class="table-header">
+                        <div class="each-header">
+                        <div>Destination</div>
+                            <i type="button" id="destination" class="fas fa-sort-amount-down sort-on"></i>
+                        </div>
+                        <div class="each-header">
+                            <div>Date</div>
+                            <i type="button" id="data" class="fas fa-sort-amount-up"></i>
+                        </div>
+                        <div class="each-header">
+                            <div>Type</div>
+                            <i type="button" id="type" class="fas fa-sort-amount-up"></i>
+                        </div>
+                        <div class="each-header">
+                            <div>Price</div>
+                            <i type="button" id="price" class="fas fa-sort-amount-up"></i>
+                        </div>
+                    </div>
+                    <div class="each-trip">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </script>
+
+    <div id="app"></div>
+    <!-- Footer -->
+    <footer>
+        <p>Spaaaace! ....space.space.space</p>
+        <ul>
+            <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+        </ul>
+    </footer>
+</body>
+<script src="scripts/jquery/dist/jquery.min.js"></script>
+<script src="scripts/semantic-ui-css/semantic.min.js"></script>
+<script src="scripts/semantic-ui-calendar/dist/calendar.min.js"></script>
+<script src="scripts/axios/dist/axios.min.js"></script>
+<script src="scripts/handlebars/dist/handlebars.min.js"></script>
+<script src="scripts/vanilla-router/dist/vanilla-router.min.js"></script>
+<script type="text/javascript" src="Js/nav-bar.js"></script>
+<script type="text/javascript" src="Js/app.js"></script>
+<script type="text/javascript" src="Js/tours-table.js"></script>
+
+</html>
