@@ -91,35 +91,60 @@ var idSorting = {
 };
 
 function checkboxState() {
-    var filteringResult = [];
-    var conditions = [];
-        $('.each-filter label  input:checkbox').each(function() {
+    var defaultData = tableContent.dataSet;
+    var filteredDataOne = [];
+    var filteredDataTwo = [];
+    var secondFiltrationData = [];
+
+        $('#destination label  input:checkbox').each(function() {
             if (this.checked) {
-                const targetId = $(this).closest('fieldset').attr('id');
-                const targetValue = $(this).attr('value');
-                conditions.push(conditionsListMaking(targetId, targetValue));
-                conditions = [].concat.apply([], conditions);     
+                var y = this;
+            filteredDataOne.push(filteringByCheckbox(y, "destination", tableContent.dataSet));
             }
         });
-    filteringResult.push(filteringTableData(tableContent.dataSet, conditions));
 
-    
+        filteredDataOne = [].concat.apply([], filteredDataOne);
+        filteredDataOne = [].concat.apply([], filteredDataOne);
 
-    var filteringResult = [].concat.apply([], filteringResult);
-    return filteringResult;
+        if (filteredDataOne.length < 1) {
+            secondFiltrationData = tableContent.dataSet;
+        }
+        else {
+            secondFiltrationData = filteredDataOne;
+        }
+        
+        $('#type label  input:checkbox').each(function() {
+            if (this.checked) {
+                var y = this;
+                filteredDataTwo.push(filteringByCheckbox(y, "type", secondFiltrationData));
+            }
+            });
+       
+        filteredDataTwo = [].concat.apply([], filteredDataTwo)
+        filteredDataTwo = [].concat.apply([], filteredDataTwo);
+
+        if (filteredDataTwo.length < 1) {
+            filteredDataTwo = filteredDataOne;
+        }
+
+        if (filteredDataTwo.length < 1) {
+            filteredDataTwo = defaultData;
+        }
+        
+    return filteredDataTwo;
 };
 
-// function filteringByCheckbox(elem, parentId, dataArr) {
-//     var filteringResult = [];
-//     var boxx = elem;
-//     if (boxx.checked) {
-//         const targetId = parentId
-//         const targetValue = $(boxx).attr('value');
-//         const conditions = conditionsListMaking(targetId, targetValue);
-//         filteringResult.push(filteringTableData(dataArr, conditions));
-//         return filteringResult;
-//     }
-// };
+function filteringByCheckbox(elem, parentId, dataArr) {
+    var filteringResult = [];
+    var boxx = elem;
+
+        const targetId = parentId
+        const targetValue = $(boxx).attr('value');
+        const conditions = conditionsListMaking(targetId, targetValue);
+        filteringResult.push(filteringTableData(dataArr, conditions));
+
+    return filteringResult;
+};
 
 function filteringTableData(dataSet, conditions) {
     var filtredDataSet = [];
