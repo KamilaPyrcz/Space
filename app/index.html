@@ -18,7 +18,7 @@
             <h2><a href="/">Space Travel</a></h2>
             <div>
                 <li><a href="/tours">Tours</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/signin">Sign in</a></li>
                 <li><a href="/contact">Contact</a></li>
             </div>
         </nav>
@@ -149,34 +149,49 @@
                                 <span>Low orbit Trips</span>
                             </label>
                         </fieldset>
-                        <fieldset class="each-filter">
-                            <legend class="filter-category">Price</legend>
-                        </fieldset>
+                        <fieldset class="each-filter" id="price">
+                            <legend>Price</legend>
+                            <div class="slidecontainer">
+                                <input type="range" min="5000" max="9000" value="5000" class="slider" id="myRange" step="1000">
+                            </div>
+                        </fieldset>                    
                     </form>
                 </div>
                 <div class="tours-table">
                     <div class="table-header">
                         <div class="each-header">
                         <div>Destination</div>
-                            <i type="button" id="destination" class="fas fa-sort-amount-down sort-on"></i>
+                            <i type="button" id="destination" class="sortarrow fas fa-sort-amount-down sort-on"></i>
                         </div>
                         <div class="each-header">
                             <div>Date</div>
-                            <i type="button" id="data" class="fas fa-sort-amount-up"></i>
+                            <i type="button" id="data" class="sortarrow fas fa-sort-amount-up"></i>
                         </div>
                         <div class="each-header">
                             <div>Type</div>
-                            <i type="button" id="type" class="fas fa-sort-amount-up"></i>
+                            <i type="button" id="type" class="sortarrow fas fa-sort-amount-up"></i>
                         </div>
                         <div class="each-header">
                             <div>Price</div>
-                            <i type="button" id="price" class="fas fa-sort-amount-up"></i>
+                            <i type="button" id="price" class="sortarrow fas fa-sort-amount-up"></i>
                         </div>
                     </div>
                     <div class="each-trip">
 
                     </div>
                 </div>
+            </div>
+        </section>
+    </script>
+
+    <!--Sign In-->
+    <script id="signin-template" type="text/x-handlebars-template">
+        <section class="hero">
+            <div class="background-image" style="background-image: url(assets/img/SignIn2.jfif);"></div>
+            <div class="hero-content-area">
+                <h1>Space Travel</h1>
+                <h3>Unmissable Adventure: "Where no man has gone before"</h3>
+                <a href="#" class="btn">Contact Us Now</a>
             </div>
         </section>
     </script>

@@ -6,6 +6,7 @@ window.addEventListener('load', function() {
     const errorTemplate = Handlebars.compile($('#error-template').html());
     const homeTemplate = Handlebars.compile($('#home-template').html());
     const toursTemplate = Handlebars.compile($('#tours-template').html());
+    const signinTemplate = Handlebars.compile($('#signin-template').html());
 
     // Instantiate api handler
     const api = axios.create({
@@ -43,10 +44,22 @@ window.addEventListener('load', function() {
             const response = await api.get('/tours');
             tableContent.dataSet = response.data;
             tableContent.tableGenerator(tableContent.dataSet);
+            tableContent.filteredData = tableContent.dataSet;
         }
         catch (error) {
             console.log(error.response);
           }
+      });
+
+      router.add('/signin', async () => {
+        let html = signinTemplate();
+        el.html(html);
+        // try {
+        //     const response = await api.get('/tours');
+        //     }
+        // catch (error) {
+        //     console.log(error.response);
+        //   }
       });
     
       router.navigateTo(window.location.pathname);
@@ -78,13 +91,19 @@ $('#app').on('click', 'i', (event) => {
     
     const target = $(event.target);
     sortingArrowsActions(target);
-    tableContent.tableGenerator(tableContent.dataSet);
+    tableContent.tableGenerator(tableContent.filteredData);
 
 }); 
 
 $("#app").on('click', ':checkbox', () => {
 
-    const filteredData = checkboxState();
-    tableContent.tableGenerator(filteredData);
+    try {
+        tableContent.filteredData = checkboxFilter();
+        tableContent.tableGenerator(tableContent.filteredData);
+    }
+    catch (error) {
+        $('.trip').remove();
+        $('.each-trip').append('<div class="trip">' + error + '</div>');
+    }
 
 });

@@ -1,6 +1,7 @@
 
 var tableContent = {
     dataSet: {},
+    filteredData: {},
 
     propertyGenerator: function (obj) {
         return '<div class="property">' + obj + '</div>';
@@ -18,12 +19,11 @@ var tableContent = {
             '</div>');
         });  
     }
-
 };
 
 function sortingArrowsActions(target){
 
-    var tableData = tableContent.dataSet;
+    var tableData = tableContent.filteredData;
     var itemsToSort = target.attr('id');
     switch (true) {
 
@@ -31,14 +31,14 @@ function sortingArrowsActions(target){
             target.removeClass('fa-sort-amount-down sort-on');
             target.addClass('fa-sort-amount-up sort-on');
 
-            tableContent.dataSet = tableData.sort(idSorting[itemsToSort]).reverse();
+            tableContent.filteredData = tableData.sort(idSorting[itemsToSort]).reverse();
             break;
 
         case (target.hasClass('fa-sort-amount-up') && target.hasClass('sort-on')):
             target.removeClass('fa-sort-amount-up sort-on');
             target.addClass('fa-sort-amount-down sort-on');
 
-            tableContent.dataSet = tableData.sort(idSorting[itemsToSort]);
+            tableContent.filteredData = tableData.sort(idSorting[itemsToSort]);
             break;
 
         case (target.hasClass('fa-sort-amount-down')):
@@ -46,7 +46,7 @@ function sortingArrowsActions(target){
             target.removeClass('fa-sort-amount-down');
             target.addClass('fa-sort-amount-down sort-on');
 
-            tableContent.dataSet = tableData.sort(idSorting[itemsToSort]);
+            tableContent.filteredData = tableData.sort(idSorting[itemsToSort]);
             break;
             
         case (target.hasClass('fa-sort-amount-up')):	
@@ -54,7 +54,7 @@ function sortingArrowsActions(target){
             target.removeClass('fa-sort-amount-down');
             target.addClass('fa-sort-amount-up sort-on');
 
-            tableContent.dataSet = tableData.sort(idSorting[itemsToSort]).reverse();
+            tableContent.filteredData = tableData.sort(idSorting[itemsToSort]).reverse();
             break;
 
         default:
@@ -90,70 +90,121 @@ var idSorting = {
 
 };
 
-function checkboxState() {
-    var defaultData = tableContent.dataSet;
+
+// function checkboxState() {
+//     var defaultData = tableContent.dataSet;
+//     var filteredDataOne = [];
+//     var filteredDataTwo = [];
+//     var secondFiltrationData = [];
+
+//     $('#destination label  input:checkbox').each(function () {
+//         if (this.checked) {
+//             var y = this;
+//             filteredDataOne.push(filteringByCheckbox(y, "destination", tableContent.dataSet));
+//         }
+//     });
+
+//     filteredDataOne = [].concat.apply([], filteredDataOne);
+//     filteredDataOne = [].concat.apply([], filteredDataOne);
+
+//     if (filteredDataOne.length < 1) {
+//         secondFiltrationData = tableContent.dataSet;
+//     }
+//     else {
+//         secondFiltrationData = filteredDataOne;
+//     }
+
+//     $('#type label  input:checkbox').each(function () {
+//         if (this.checked) {
+//             var y = this;
+//             filteredDataTwo.push(filteringByCheckbox(y, "type", secondFiltrationData));
+//         }
+//     });
+
+//     filteredDataTwo = [].concat.apply([], filteredDataTwo)
+//     filteredDataTwo = [].concat.apply([], filteredDataTwo);
+
+//     if (filteredDataTwo.length < 1) {
+//         filteredDataTwo = filteredDataOne;
+//     }
+
+//     if (filteredDataTwo.length < 1) {
+//         filteredDataTwo = defaultData;
+//     }
+
+//     return filteredDataTwo;
+// };
+
+
+
+function checkboxFilter() {
     var filteredDataOne = [];
     var filteredDataTwo = [];
     var secondFiltrationData = [];
 
-        $('#destination label  input:checkbox').each(function() {
-            if (this.checked) {
-                var y = this;
-            filteredDataOne.push(filteringByCheckbox(y, "destination", tableContent.dataSet));
-            }
-        });
+    filteredDataOne = checkboxState('#destination label  input:checkbox', "destination", tableContent.dataSet);
 
-        filteredDataOne = [].concat.apply([], filteredDataOne);
-        filteredDataOne = [].concat.apply([], filteredDataOne);
+    if (filteredDataOne.length < 1) {
+        secondFiltrationData = tableContent.dataSet;
+    }
+    else {
+        secondFiltrationData = filteredDataOne;
+    }
 
-        if (filteredDataOne.length < 1) {
-            secondFiltrationData = tableContent.dataSet;
-        }
-        else {
-            secondFiltrationData = filteredDataOne;
-        }
-        
-        $('#type label  input:checkbox').each(function() {
-            if (this.checked) {
-                var y = this;
-                filteredDataTwo.push(filteringByCheckbox(y, "type", secondFiltrationData));
-            }
-            });
-       
-        filteredDataTwo = [].concat.apply([], filteredDataTwo)
-        filteredDataTwo = [].concat.apply([], filteredDataTwo);
+    filteredDataTwo = checkboxState('#type label  input:checkbox', "type", secondFiltrationData);
 
-        if (filteredDataTwo.length < 1) {
-            filteredDataTwo = filteredDataOne;
-        }
 
-        if (filteredDataTwo.length < 1) {
-            filteredDataTwo = defaultData;
-        }
-        
+    if (filteredDataTwo.length < 1) {
+        filteredDataTwo = secondFiltrationData;
+    }
+
     return filteredDataTwo;
 };
 
-function filteringByCheckbox(elem, parentId, dataArr) {
-    var filteringResult = [];
-    var boxx = elem;
 
-        const targetId = parentId
-        const targetValue = $(boxx).attr('value');
-        const conditions = conditionsListMaking(targetId, targetValue);
-        filteringResult.push(filteringTableData(dataArr, conditions));
+function checkboxState(a, parentId, dataSet) {
+    var conditions = [];
+    $(a).each(function () {
+        if (this.checked) {
+            const targetValue = $(this).attr('value');
+            conditions.push(giveConditionF(parentId, targetValue));
+        }
+    });
+    var DataArr = filteringTableData(dataSet, conditions);
 
-    return filteringResult;
-};
+    if (conditions.length > 0 && DataArr.length < 1) {
+        throw "no such item";
+    }
+    return DataArr;
+}
+
+
+
+// function filteringByCheckbox(elem, parentId) {
+//         const targetValue = $(elem).attr('value');
+//         conditions.push(giveConditionF(parentId, targetValue));
+// };
+
+// function filteringByCheckbox(elem, parentId, dataArr) {
+//     var filteringResult = [];
+//     var boxx = elem;
+
+//         const targetId = parentId
+//         const targetValue = $(boxx).attr('value');
+//         const conditions = conditionsListMaking(targetId, targetValue);
+//         filteringResult.push(filteringTableData(dataArr, conditions));
+
+//     return filteringResult;
+// };
 
 function filteringTableData(dataSet, conditions) {
-    var filtredDataSet = [];
+    var filteredDataSet = [];
     for (var i = 0, len = dataSet.length; i < len; i++) {
         if (checkConditions(dataSet[i], conditions)) {
-            filtredDataSet.push(dataSet[i]);
+            filteredDataSet.push(dataSet[i]);
         }
     }
-    return filtredDataSet;
+    return filteredDataSet;
 };
 
 function checkConditions(el, condlist){  
@@ -165,16 +216,15 @@ function checkConditions(el, condlist){
     });
     return result;
 };
-function conditionsListMaking(id, value) {
-    var filteringConditions = [];
-    filteringConditions.push(giveConditionF(id, value));
-    return filteringConditions;
-};
+// function conditionsListMaking(id, value) {
+//     var filteringConditions = [];
+//     filteringConditions.push(giveConditionF(id, value));
+//     return filteringConditions;
+// };
 
 function giveConditionF(id, value){
     return function(el) {
         return el[id] === value;
     }
 };
-
 
