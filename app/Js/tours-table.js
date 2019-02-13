@@ -4,14 +4,14 @@ var tableContent = {
     filteredData: {},
 
     propertyGenerator: function (obj) {
-        return '<div class="property">' + obj + '</div>';
+        return '<div class="js-tours-table__row-element">' + obj + '</div>';
     },
 
     tableGenerator: function (tabledata) { 
-        $('.trip').remove();
+        $('.js-tours-table__table-row').remove();
         
         tabledata.forEach(function(obj){
-            $('.each-trip').append('<div class="trip">' +
+            $('.js-tours-table__table-body').append('<div class="js-tours-table__table-row">' +
             tableContent.propertyGenerator(obj.destination) +
             tableContent.propertyGenerator(obj.data) +
             tableContent.propertyGenerator(obj.type) +
@@ -27,32 +27,32 @@ function sortingArrowsActions(target){
     var itemsToSort = target.attr('id');
     switch (true) {
 
-        case (target.hasClass('fa-sort-amount-down') && target.hasClass('sort-on')):
-            target.removeClass('fa-sort-amount-down sort-on');
-            target.addClass('fa-sort-amount-up sort-on');
+        case (target.hasClass('fa-sort-amount-down') && target.hasClass('js-tours-table__sortarrow--sort-on')):
+            target.removeClass('fa-sort-amount-down js-tours-table__sortarrow--sort-on');
+            target.addClass('fa-sort-amount-up js-tours-table__sortarrow--sort-on');
 
             tableContent.filteredData = tableData.sort(idSorting[itemsToSort]).reverse();
             break;
 
-        case (target.hasClass('fa-sort-amount-up') && target.hasClass('sort-on')):
-            target.removeClass('fa-sort-amount-up sort-on');
-            target.addClass('fa-sort-amount-down sort-on');
+        case (target.hasClass('fa-sort-amount-up') && target.hasClass('js-tours-table__sortarrow--sort-on')):
+            target.removeClass('fa-sort-amount-up js-tours-table__sortarrow--sort-on');
+            target.addClass('fa-sort-amount-down js-tours-table__sortarrow--sort-on');
 
             tableContent.filteredData = tableData.sort(idSorting[itemsToSort]);
             break;
 
         case (target.hasClass('fa-sort-amount-down')):
-            $( "i" ).removeClass( "sort-on" ) 
+            $( "i" ).removeClass( "js-tours-table__sortarrow--sort-on" ) 
             target.removeClass('fa-sort-amount-down');
-            target.addClass('fa-sort-amount-down sort-on');
+            target.addClass('fa-sort-amount-down js-tours-table__sortarrow--sort-on');
 
             tableContent.filteredData = tableData.sort(idSorting[itemsToSort]);
             break;
             
         case (target.hasClass('fa-sort-amount-up')):	
-            $( "i" ).removeClass( "sort-on" ) 
+            $( "i" ).removeClass( "js-tours-table__sortarrow--sort-on" ) 
             target.removeClass('fa-sort-amount-down');
-            target.addClass('fa-sort-amount-up sort-on');
+            target.addClass('fa-sort-amount-up js-tours-table__sortarrow--sort-on');
 
             tableContent.filteredData = tableData.sort(idSorting[itemsToSort]).reverse();
             break;

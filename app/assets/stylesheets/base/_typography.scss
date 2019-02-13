@@ -1,0 +1,104 @@
+/// Font stack
+
+
+$font-text: 'Oswald', sans-serif;
+$font-headline: 'aileronsregular';
+
+
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+
+
+
+/// Text scale - Perfect Fourth - 1.333em ///
+
+
+$text-settings: (
+  'xs': (
+    font-size: 13.50px, // 0.75
+    line-height: $base-line-height
+  ),
+
+  'additional': (
+    font-size: 16px, 
+    line-height: $base-line-height
+  ),
+
+  'base': (
+    font-size: 18px, // 1
+    line-height: $base-line-height
+  ),
+
+  'md': (
+    font-size: 23.99px, // 1.333
+    line-height: $base-line-height
+  ),
+
+  'big': (
+    font-size: 31.98px, // 1.777
+    line-height: $base-line-height * 2
+  ),
+
+  'lg': (
+    font-size: 42.63px, // 2.369
+    line-height: $base-line-height * 2
+  ),
+
+  'xl': (
+    font-size: 56.83px, // 3.157
+    line-height: $base-line-height * 2
+  ),
+
+  'xxl': (
+    font-size: 75.76px, // 4.209
+    line-height: $base-line-height * 2
+  )
+);
+
+
+
+/// Fixed text and line-height size ///
+ 
+
+  @function text-scale($level) {
+    @return map-get(map-get($text-settings, $level), 'font-size');
+  }
+
+  @function line-height($level) {
+    @return map-get(map-get($text-settings, $level), 'line-height');
+  }
+  
+  @mixin text-setting($level) {
+    font-size: text-scale($level);
+    line-height: line-height($level);
+  }
+
+
+
+/// Fluid text size ///
+
+
+@function get-size($level) {
+  @return map-get(map-get($text-settings, $level), 'font-size');
+};
+
+
+@mixin fluid-text($maxsize, $minsize) {
+
+    $max-font-size: get-size($maxsize);
+    $min-font-size: get-size($minsize);
+
+    $lower-range: 650px;
+    $upper-range: 1100px;
+
+    font-size: calc(#{$min-font-size} + #{(($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1)))} * ( (100vw - #{$lower-range}) / #{(($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))}));
+    
+    @media screen and (max-width: $lower-range) {
+      font-size: $min-font-size;
+    }
+    @media screen and (min-width: $upper-range){
+      font-size: $max-font-size;
+    }
+  }
+  
+  

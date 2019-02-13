@@ -6,7 +6,7 @@ window.addEventListener('load', function() {
     const errorTemplate = Handlebars.compile($('#error-template').html());
     const homeTemplate = Handlebars.compile($('#home-template').html());
     const toursTemplate = Handlebars.compile($('#tours-template').html());
-    const signinTemplate = Handlebars.compile($('#signin-template').html());
+
 
     // Instantiate api handler
     const api = axios.create({
@@ -50,40 +50,58 @@ window.addEventListener('load', function() {
             console.log(error.response);
           }
       });
-
-      router.add('/signin', async () => {
-        let html = signinTemplate();
-        el.html(html);
-        // try {
-        //     const response = await api.get('/tours');
-        //     }
-        // catch (error) {
-        //     console.log(error.response);
-        //   }
-      });
     
       router.navigateTo(window.location.pathname);
 
     // Nav-bar navigation
 
-      $('a').on('click', (event) => {
+    setTimeout(function () {
+        navBarController(); /// rendering wright Navbar style depending on window position
+    }, 200);
+
+    $('a').on('click', (event) => {
         // Block browser page load
-        event.preventDefault();
-      
+        event.preventDefault();    
+
         const target = $(event.target);
         // // Highlight Active Menu on Click
         // 
         // $('.item').removeClass('active');
         // target.addClass('active');
-      
+
         // Navigate to clicked url
         const href = target.attr('href');
-        const path = href.substr(href.lastIndexOf('/'));
-        router.navigateTo(path);
-      });
+
+        if (href) {
+            const path = href.substr(href.lastIndexOf('/'));
+            router.navigateTo(path);
+        }
+        
+    });
+
+    $('.js-user-modal').on('click', (event) => {
+        // Block browser page load
+        event.preventDefault();
+        showUserModal();
+        
+        
+    });
+    
+
 
 });
 
+// Reloads page when orientation changes 
+
+window.onorientationchange = function () {
+    var orientation = window.orientation;
+    switch (orientation) {
+        case 0:
+        case 90:
+        case -90: window.location.reload();
+            break;
+    }
+};
 
 // Tours-table content sorting 
 

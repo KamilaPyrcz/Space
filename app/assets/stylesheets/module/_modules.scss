@@ -1,0 +1,163 @@
+
+
+///////// NavBar /////////
+
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  list-style: none;
+  top: 0;  // Position the navbar at the top of the page //
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  padding: 25px 100px 25px;
+  opacity: 0;
+  animation: 1s fadein 0.5s forwards;
+  color: map-deep-get($colors, 'foreground', 'light');
+  font-family: $font-headline;
+  z-index: 1;
+
+  
+
+  @media (max-width: 800px) {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
+
+  h4 {
+    @media (max-width: 650px) {
+      margin-bottom: 15px;
+    }
+  }
+
+
+  div {
+    display: flex;
+    margin-right: -15px;
+
+    li {
+      margin: 0 15px;
+      @include fluid-text('base', 'additional');
+    }
+  }
+
+}
+
+// additional classes - for styling NavBar depending on window position (nav-bar.js) //
+
+.js-scrolled--outofhero {
+  background-color: map-deep-get($colors, 'background', 'dark-1');
+  padding: 12px 100px 12px;
+  transition: padding 0.3s ease-in;
+  box-shadow: 0px 6px 20px -5px map-deep-get($colors, 'background', 'dark-1');
+}
+
+.js-scrolled--backwards {
+  a {
+    transition: opacity 0.15s ease-in;
+    opacity: 1;
+  }
+}
+
+.js-scrolled__navfade {
+  a {
+    transition: opacity 0.15s ease-in;
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+
+
+
+
+///////// Home Page section divider /////////
+
+
+.horizontal-ruler {
+  width: 250px;
+  height: 3px;
+  background-color: map-deep-get($colors, 'primary', 'base');
+  border: 0;
+  margin-bottom: 50px;
+}
+
+
+
+
+/////////  Button  /////////
+
+.btn {
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  background-color: map-deep-get($colors, 'background', 'dark-1');
+  // box-shadow: 0px 6px 20px -5px rgb(14,17,34, 0.8);
+  opacity: 1;
+  padding: 20px 46px;
+  @include fluid-text('md', 'additional');
+
+  @media (max-width: 800px) {
+    padding: 15px 36px;
+  }
+}
+
+
+
+
+/////////  Background-image  /////////
+
+
+.background-image {
+  position: absolute;
+  background-size: cover;
+  background-attachment:fixed;
+  background-position:center; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: map-deep-get($colors, 'background', 'dark-1');
+}
+
+
+
+
+///////// Footer /////////
+
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -61px;
+  padding: 12px 0;
+  color: map-deep-get($colors, 'foreground', 'light');
+  background-color: map-deep-get($colors, 'background', 'dark-1');
+
+  ul {
+  display: flex;
+  margin-right: 30px;
+
+    li {
+    margin-left: 16px;
+    }
+
+  }
+
+  p {
+  @include text-setting('xs');
+  margin-left: 30px;
+  opacity: 0.6;
+  }
+
+}

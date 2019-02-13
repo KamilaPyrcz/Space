@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'aileronsregular';
+    src:  url('../fonts/ailerons/ailerons-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;  
+ }
+
+
+
+/// Colors ///
+
+
+$colors: (
+    'primary': (
+        'base': #494A68,
+        'light': #5D5D77,
+        'dark': #2E3354
+    ),
+
+    'background': (
+        'light': #f5f5f5,
+        'dark-0': #141728,
+        'dark-1': #0E1122
+    ),
+
+    'foreground': (
+        'light': #F2F2F2,
+        'dark': #555555
+    )
+);
+
+
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+  
+/// Animations ///
+
+
+// home page hero title animation //
+
+@keyframes slidefade {
+    100% {
+        opacity: 1;
+        margin: 0;
+    }
+  }  
+
+// navbar animation ///
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+
+// tours page hero title animation //
+
+@keyframes tourslidefade {
+    100% {
+        margin-top: 30px;
+        opacity: 1;
+    }
+}
+

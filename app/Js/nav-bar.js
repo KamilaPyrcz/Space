@@ -1,34 +1,46 @@
 
-let viewposition = $(window).scrollTop();
-const header = document.querySelector("nav")
-let hero_height;
+/// Rendering wright Navbar style depending on window position
 
-setTimeout(function(){  
-  hero_height = ($('.background-image').height());
-  console.log(hero_height);
- }, 300);
+ const header = document.querySelector("nav");
 
+ window.addEventListener('scroll', function () {
+    navBarController();
+ });
 
-const addClassOnScroll = function(){
-  header.classList.add("scrolled");};
-const removeClassOnScroll = function() {
-  header.classList.remove("scrolled");
-  header.classList.add("scrolledback");
+ const navBarController = function() {
+
+  let viewposition = $(window).scrollTop();
+  let hero_height = ($('.hero').height());
+  let hero_contentArea = ($('.hero__content-area').height());
+  let nav_height = ($('.navbar').height());
+ 
+  
+ switch (true) {
+
+  case (viewposition >= ((hero_height/2) - hero_contentArea) && viewposition <= ((hero_height/2) + nav_height)):
+        classesOnMidHero();
+      break;
+
+  case (viewposition >= hero_height - nav_height):
+        classOnHeroExit();
+      break;
+
+  default:
+        classesOnDefault();
+}
+ };
+
+ const classesOnMidHero = function() {
+  header.classList.add("js-scrolled__navfade");
 };
-  
 
-window.addEventListener('scroll', function () {
-  viewposition = $(window).scrollTop();
-  if (viewposition >= hero_height) {
-    addClassOnScroll()
-  }
-  else { 
-    removeClassOnScroll() }
-    console.log(viewposition);
-})
+const classOnHeroExit = function() {
+  header.classList.add("js-scrolled--outofhero");
+  header.classList.remove("js-scrolled__navfade");
+};
 
-setTimeout(function() {
-  console.log(hero_height);
-}, 3000);
-
-  
+const classesOnDefault = function() {
+  header.classList.add("js-scrolled--backwards");
+  header.classList.remove("js-scrolled--outofhero");
+  header.classList.remove("js-scrolled__navfade");
+}; 

@@ -1,0 +1,246 @@
+
+///////// Tours-page main view /////////
+
+.tours-section {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    text-align: center;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    padding: 56px 0 0 0;
+    color: map-deep-get($colors, 'foreground', 'light');
+}
+
+.tours-section__title {
+    order: 2;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: 1s tourslidefade 0.4s forwards;
+}
+@keyframes tourslidefade {
+    100% {
+        margin-top: 30px;
+        opacity: 1;
+    }
+}
+
+
+///////// div containing table with available tours /////////
+
+
+.tours-offer {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 2;
+    max-width: 100%;
+    opacity: 0;
+    margin-top: 20px;
+    animation: 1s tablelidefade 0.4s forwards;
+}
+
+@keyframes tablelidefade {
+    100% {
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+/// partially transparent black background ///
+
+.tours-offer__background {
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+    margin-bottom: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    height: 0;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+    animation: 1s upslidebackground 0.4s forwards;
+
+}
+
+@keyframes upslidebackground {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
+
+
+
+
+///////// Tours Table /////////
+
+
+.tours-table {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    align-self: flex-start;
+    width: 40%;
+    padding-bottom: 9px;
+    background-color: map-deep-get($colors, 'background', 'dark-0');
+    border-top: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-bottom: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-radius: 3px;
+
+}
+
+/// header elements ///
+
+.tours-table__header {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    overflow: hidden;
+    padding: 20px 0px;
+}
+
+.tours-table__column-title {
+    @include fluid-text('md', 'base');
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 110px;
+    padding-left: 5px;
+}
+
+.tours-table__sortarrow {
+    font-size: 25px;
+    width: auto;
+    align-self: flex-end;
+    padding: 0px 0px 2px 5px;
+    color: map-deep-get($colors, 'primary', 'dark');
+    cursor: pointer;
+}
+
+.js-tours-table__sortarrow--sort-on {
+    color: map-deep-get($colors, 'foreground', 'light');
+}
+
+
+/// table body elements ///
+
+.js-tours-table__table-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    color: map-deep-get($colors, 'foreground', 'light');
+}
+
+.js-tours-table__table-row {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: map-deep-get($colors, 'background', 'dark-1');
+    border-top: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-bottom: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-radius: 3px;
+    padding: 12px 0px;
+    margin: 5px 4px;
+}
+
+.js-tours-table__row-element {
+    width: 108px;
+}
+
+
+
+
+
+///////// Table Filter /////////
+
+
+.tours-filter {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    align-self: flex-start;
+    height: 50%;
+    width: 10%;
+    background-color: map-deep-get($colors, 'background', 'dark-0');
+    margin-right: 10px;
+    border-top: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-bottom: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-radius: 3px;
+    padding-bottom: 9px;
+}
+
+.tours-filter__fieldset {
+    background-color: map-deep-get($colors, 'background', 'dark-1');
+    border: none;
+    border-top: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-bottom: 1px solid map-deep-get($colors, 'primary', 'light');
+    border-radius: 3px;
+    padding: 14px 0px;
+    margin: 5px 4px;
+    
+    label {
+        @include text-setting('additional');
+        display: block;
+        text-align: left;
+        padding: 0 0 8px 5px;
+    }
+
+    input, i {
+        cursor: pointer;
+    }
+    
+}
+
+
+///  Slider  ///
+
+.slide-container {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 8px;
+    border-radius: 5px;
+    background-color: map-deep-get($colors, 'primary', 'light');
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: map-deep-get($colors, 'foreground', 'light');
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: map-deep-get($colors, 'foreground', 'light');
+    cursor: pointer;
+}
+
