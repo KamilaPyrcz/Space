@@ -43,6 +43,7 @@ a {
   text-decoration: none;
   opacity: 0.75;
   color: map-deep-get($colors, 'foreground', 'light');
+  cursor: pointer;
 }
 
   a:hover {
@@ -63,11 +64,11 @@ section {
     align-items: center;
     padding: 90px 80px;
 
-    @media (min-width: 680px) and (max-width: 860px) {
+    @media screen and (min-width: 680px) and (max-width: 860px) {
       padding: 90px 40px;
     }
 
-    @media (max-width: 450px) {
+    @media screen and (max-width: 450px) {
       padding: 90px 40px;
     }
     

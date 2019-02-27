@@ -20,8 +20,8 @@
             <h4><a href="/">Space Travel</a></h4>
             <div>
                 <li><a href="/tours">Tours</a></li>
-                <li><a class="js-user-modal">Register</a></li>
-                <li><a class="js-user-modal">Sign in</a></li>
+                <li><a data-modal-label="register" class="js-user-modal">Register</a></li>
+                <li><a data-modal-label="signin" class="js-user-modal">Sign in</a></li>
                 <li><a href="/contact">Contact</a></li>
             </div>
         </nav>
@@ -40,7 +40,6 @@
     
     <div class="user-modal">
         
-
         <div class="user-modal__container">
                 <i class="fas fa-times"></i>
             <div class="user-modal__register">
@@ -62,7 +61,29 @@
 
             <h4>Already have an account?</h4>
             <div>
-                <p class="js-user-modal__view-changer">Sign in</p>   
+                <p class="js-user-modal__view-changer" id="signin-p">Sign in</p>   
+            </div>
+            
+
+            </div>
+
+            <div class="user-modal__signin">
+                <h3>Sign In</h3>
+
+                <form class="user-modal__form">
+
+                    <label>Email address</label>
+                    <input class="user-modal__input" type="email">
+
+                    <label>Password</label>
+                    <input class="user-modal__input" type="password">
+                    
+                    <a href="#" class="btn user-modal__btn">Sign In</a>
+                </form>
+
+            <h4>You dont have an account?</h4>
+            <div>
+                <p class="js-user-modal__view-changer" id="register-p">Register</p>   
             </div>
             
 

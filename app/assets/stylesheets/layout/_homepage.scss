@@ -27,7 +27,7 @@
   padding-bottom: 20px;
   @include fluid-text('big', 'base');
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     font-weight: normal; 
   }
 
@@ -69,7 +69,7 @@
   li.small {
     flex-basis: 30%;
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       flex-basis: 100%;
     }
   }
@@ -77,7 +77,7 @@
   li.large {
     flex-basis: 70%;
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       flex-basis: 100%;
     }
   }
@@ -88,15 +88,17 @@
 
 .hp-grid--packages {
   li {
+    display: flex;
+    flex-flow: column;
     padding: 50px;
     flex-basis: 50%;
-    text-align: center;
+    align-items: center;
 
-    @media (max-width: 860px) {
+    @media screen and (max-width: 860px) {
       padding: 25px;
     }
 
-    @media (max-width: 680px) {
+    @media screen and (max-width: 680px) {
       flex-basis: 100%;
 
     }
@@ -113,7 +115,7 @@
   }
 
   p {
-    @media (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
       padding: 0px;
     }
   }
@@ -147,7 +149,7 @@
   color: map-deep-get($colors, 'primary', 'base');
   flex: 1;
 
-  @media (max-width: 1100px) {
+  @media screen and (max-width: 1100px) {
         flex-basis: 100%;
         margin: 0 0 20px;
   }
