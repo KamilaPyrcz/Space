@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
     const errorTemplate = Handlebars.compile($('#error-template').html());
     const homeTemplate = Handlebars.compile($('#home-template').html());
     const toursTemplate = Handlebars.compile($('#tours-template').html());
-
+    const contactTemplate = Handlebars.compile($('#contact-template').html());
 
 
 //// Instantiate api handler
@@ -51,6 +51,13 @@ window.addEventListener('load', function () {
             console.log(error.response);
         }
     });
+
+    router.add('/contact', async () => {
+        let html = contactTemplate();
+        el.html(html);
+     
+    });
+
 
     router.navigateTo(window.location.pathname);
 

@@ -10,7 +10,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var app = express();
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8000;
 
 var Trip = require('./models/tripModel');
 mainRouter = require('./routes/mainRouter')(Trip);
@@ -27,4 +27,3 @@ app.listen(port, function(){
     console.log('port run' + port);
     console.log(mongoose.connection.readyState);
 });
-setTimeout(function(){ console.log(mongoose.connection.readyState); }, 3000);
