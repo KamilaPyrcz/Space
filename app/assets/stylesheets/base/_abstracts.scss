@@ -17,6 +17,10 @@ $colors: (
         'dark': #2E3354
     ),
 
+    'secondary' : (
+        'base': #07c
+    ),
+
     'background': (
         'light': #f5f5f5,
         'dark-0': #141728,
@@ -25,6 +29,7 @@ $colors: (
 
     'foreground': (
         'light': #F2F2F2,
+        'dimmed': #A0A0A0,
         'dark': #555555
     )
 );

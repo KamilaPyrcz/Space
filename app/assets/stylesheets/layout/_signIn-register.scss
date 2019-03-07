@@ -107,7 +107,7 @@
 
     span {
       @include text-setting('xs');
-      color: #07c;
+      color:map-deep-get($colors, 'secondary', 'base');
       cursor: pointer;
     }
   }
