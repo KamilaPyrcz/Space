@@ -17,12 +17,12 @@
     <!-- Navigation Menu -->
     <header>
         <nav class="navbar scrolled--backwards">
-            <h4><a href="/">Space Travel</a></h4>
+            <h4><a href="/" class="js-navigation-btn">Space Travel</a></h4>
             <div>
-                <li><a href="/tours">Tours</a></li>
+                <li><a class="js-navigation-btn" href="/tours">Tours</a></li>
                 <li><a data-modal-label="register" class="js-user-modal">Register</a></li>
                 <li><a data-modal-label="signin" class="js-user-modal">Sign in</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a class="js-navigation-btn"href="/contact">Contact</a></li>
             </div>
         </nav>
     </header>
@@ -38,15 +38,13 @@
 
     <!-- User Signin/Register Modal-->
     
-    <div class="user-modal">
-        
+    <div class="user-modal">    
         <div class="user-modal__container">
                 <i class="fas fa-times"></i>
             <div class="user-modal__register">
                 <h3>Create your account</h3>
 
                 <form class="user-modal__form">
-
                     <label>Email address</label>
                     <input class="user-modal__input" type="email">
 
@@ -63,13 +61,10 @@
             <div>
                 <p class="js-user-modal__view-changer" id="signin-p">Sign in</p>   
             </div>
-            
-
             </div>
 
             <div class="user-modal__signin">
                 <h3>Sign In</h3>
-
                 <form class="user-modal__form">
 
                     <label>Email address</label>
@@ -85,8 +80,6 @@
             <div>
                 <p class="js-user-modal__view-changer" id="register-p">Register</p>   
             </div>
-            
-
             </div>
 
         <div class="user-modal__signin"></div>
@@ -96,11 +89,8 @@
                         and 
                         <span>Privacy statement</span>
                     </p>
-         </div>      
-           
-      
-       </div>
-            
+         </div>        
+       </div>    
     </div>
 
     <!----------- TEMPLATES ----------->
@@ -112,7 +102,7 @@
                 <div class="hero__content-area">
                     <h1>Space Travel</h1>
                     <h3 class="hero__title-quote">Unmissable Adventure: "Where no man has gone before"</h3>
-                    <a href="#" class="btn">Contact Us Now</a>
+                    <a href="/contact" class="js-navigation-btn btn">Contact Us Now</a>
                 </div>
             </div>
 
@@ -265,7 +255,6 @@
     <!--Contact-->
     <script id="contact-template" type="text/x-handlebars-template">
         <section class="contact-page" style="background-image: url(assets/img/contact1.jfif);">
-            <!-- <div class="background-image" style="background-image: url(assets/img/main.jpg);"></div> -->
             <div class="frosted-mask">
             </div>
             <div class="contact-container">

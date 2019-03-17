@@ -1,3 +1,29 @@
+//// Tours-table content sorting events ////
+
+$('#app').on('click', '.tours-table__sortarrow', (event) => {
+
+    const target = $(event.target);
+    sortingArrowsActions(target);
+    tableContent.tableGenerator(tableContent.filteredData);
+
+});
+
+$("#app").on('click', ':checkbox', () => {
+
+    try {
+        tableContent.filteredData = checkboxFilter();
+        tableContent.tableGenerator(tableContent.filteredData);
+    }
+    catch (error) {
+        $('.trip').remove();
+        $('.each-trip').append('<div class="trip">' + error + '</div>');
+    }
+
+});
+
+
+
+
 
 var tableContent = {
     dataSet: {},
@@ -91,52 +117,6 @@ var idSorting = {
 };
 
 
-// function checkboxState() {
-//     var defaultData = tableContent.dataSet;
-//     var filteredDataOne = [];
-//     var filteredDataTwo = [];
-//     var secondFiltrationData = [];
-
-//     $('#destination label  input:checkbox').each(function () {
-//         if (this.checked) {
-//             var y = this;
-//             filteredDataOne.push(filteringByCheckbox(y, "destination", tableContent.dataSet));
-//         }
-//     });
-
-//     filteredDataOne = [].concat.apply([], filteredDataOne);
-//     filteredDataOne = [].concat.apply([], filteredDataOne);
-
-//     if (filteredDataOne.length < 1) {
-//         secondFiltrationData = tableContent.dataSet;
-//     }
-//     else {
-//         secondFiltrationData = filteredDataOne;
-//     }
-
-//     $('#type label  input:checkbox').each(function () {
-//         if (this.checked) {
-//             var y = this;
-//             filteredDataTwo.push(filteringByCheckbox(y, "type", secondFiltrationData));
-//         }
-//     });
-
-//     filteredDataTwo = [].concat.apply([], filteredDataTwo)
-//     filteredDataTwo = [].concat.apply([], filteredDataTwo);
-
-//     if (filteredDataTwo.length < 1) {
-//         filteredDataTwo = filteredDataOne;
-//     }
-
-//     if (filteredDataTwo.length < 1) {
-//         filteredDataTwo = defaultData;
-//     }
-
-//     return filteredDataTwo;
-// };
-
-
-
 function checkboxFilter() {
     var filteredDataOne = [];
     var filteredDataTwo = [];
@@ -179,24 +159,6 @@ function checkboxState(a, parentId, dataSet) {
 }
 
 
-
-// function filteringByCheckbox(elem, parentId) {
-//         const targetValue = $(elem).attr('value');
-//         conditions.push(giveConditionF(parentId, targetValue));
-// };
-
-// function filteringByCheckbox(elem, parentId, dataArr) {
-//     var filteringResult = [];
-//     var boxx = elem;
-
-//         const targetId = parentId
-//         const targetValue = $(boxx).attr('value');
-//         const conditions = conditionsListMaking(targetId, targetValue);
-//         filteringResult.push(filteringTableData(dataArr, conditions));
-
-//     return filteringResult;
-// };
-
 function filteringTableData(dataSet, conditions) {
     var filteredDataSet = [];
     for (var i = 0, len = dataSet.length; i < len; i++) {
@@ -216,11 +178,7 @@ function checkConditions(el, condlist){
     });
     return result;
 };
-// function conditionsListMaking(id, value) {
-//     var filteringConditions = [];
-//     filteringConditions.push(giveConditionF(id, value));
-//     return filteringConditions;
-// };
+
 
 function giveConditionF(id, value){
     return function(el) {

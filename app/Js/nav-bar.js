@@ -1,11 +1,19 @@
+/// Rendering right Navbar style depending on window position
 
-/// Rendering wright Navbar style depending on window position
+setTimeout(function () {
+  navBarController();   
+}, 200); /// waiting for accurate navbar position
+
+
+window.addEventListener('scroll', function () {
+  navBarController();
+});
+
+
+
+
 
  const header = document.querySelector("nav");
-
- window.addEventListener('scroll', function () {
-    navBarController();
- });
 
  const navBarController = function() {
 
@@ -30,7 +38,7 @@
 }
  };
 
- const classesOnMidHero = function() {
+const classesOnMidHero = function() {
   header.classList.add("js-scrolled__navfade");
 };
 

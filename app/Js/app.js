@@ -63,59 +63,25 @@ window.addEventListener('load', function () {
 
 
 
+//// Navigation elements
 
-//// Nav-bar navigation
+$(document).on('click','.js-navigation-btn', (event) => {
 
-    setTimeout(function () {
-        navBarController(); /// rendering wright Navbar style depending on window position
-    }, 200);
-
-    $('a').on('click', (event) => {
-
-        // Block browser page load
-        event.preventDefault();
-
-        const target = $(event.target);
-        // // Highlight Active Menu on Click
-        // 
-        // $('.item').removeClass('active');
-        // target.addClass('active');
-
-        // Navigate to clicked url
-        const href = target.attr('href');
-
-        if (href) {
-            const path = href.substr(href.lastIndexOf('/'));
-            router.navigateTo(path);
-        }
-
-    });
-
-    
-
-    
-//// Opens and manages register/sign modal 
-
-    $('.js-user-modal').on('click', (event) => {
-        const target = event.target;
-        const label = target.getAttribute('data-modal-label');
-        const modal = $('.user-modal');
-        const modalcontent = $('.user-modal__container');
-        const close = $('.fa-times');
-        const signInView = $('#signin-p');
-        const registerView = $('#register-p');
-
-        close.on('click', () => modal.removeClass('js-user-modal--visible'));  
-        modal.on('click', () =>  modal.removeClass('js-user-modal--visible'));
-        signInView.on('click', () => modalViewChanger("signin"));
-        registerView.on('click', () => modalViewChanger("register"));
-		modalcontent.on('click', (e) => e.stopPropagation());
-
-        showUserModal(label);
-
-    });
-
-
+    // Block browser page load
+    event.preventDefault();
+  
+    const target = $(event.target);
+  
+    // Navigate to clicked url
+    const href = target.attr('href');
+  
+    if (href) {
+        const path = href.substr(href.lastIndexOf('/'));
+        router.navigateTo(path);
+    }
+  
+  });
+  
 
 });
 
@@ -133,26 +99,3 @@ window.onorientationchange = function () {
             break;
     }
 };
-
-//// Tours-table content sorting 
-
-$('#app').on('click', 'i', (event) => {
-
-    const target = $(event.target);
-    sortingArrowsActions(target);
-    tableContent.tableGenerator(tableContent.filteredData);
-
-});
-
-$("#app").on('click', ':checkbox', () => {
-
-    try {
-        tableContent.filteredData = checkboxFilter();
-        tableContent.tableGenerator(tableContent.filteredData);
-    }
-    catch (error) {
-        $('.trip').remove();
-        $('.each-trip').append('<div class="trip">' + error + '</div>');
-    }
-
-});
