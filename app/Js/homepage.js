@@ -10,10 +10,6 @@ $('#app').on('click', '.js-validate', function() {
     validate();
  });
  
-//  $('#app').on('focus', '.js-email', function(){
-   
-//     $(".js-result").text("");
-//   });
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,6 +27,7 @@ function validate() {
     if (validateEmail(email)) {
       $validResult.addClass('js-email--valid');
       $('.contact__form').addClass('contact__form--hide');
+      
     } else {
       $invalidResult.text('Please enter a valid email address.');
       $invalidResult.addClass('js-email--invalid');

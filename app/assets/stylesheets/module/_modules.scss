@@ -19,8 +19,6 @@
   font-family: $font-headline;
   z-index: 1;
 
-  
-
   @media (max-width: 800px) {
     padding-right: 50px;
     padding-left: 50px;
@@ -48,6 +46,7 @@
   }
 
 }
+
 
 // additional classes - for styling NavBar depending on window position (nav-bar.js) //
 
@@ -100,14 +99,20 @@
   font-weight: bold;
   text-align: center;
   background-color: map-deep-get($colors, 'background', 'dark-1');
-  // box-shadow: 0px 6px 20px -5px rgb(14,17,34, 0.8);
+  box-shadow:  0px 6px 10px -5px black;
   opacity: 1;
   padding: 20px 46px;
   @include fluid-text('md', 'additional');
-
+  
   @media (max-width: 800px) {
     padding: 15px 36px;
   }
+}
+
+.btn:hover {
+  background-color: map-deep-get($colors, 'primary', 'dark');
+  color: #ffff;
+  text-shadow: 0px 0px 2.5px #ffff;
 }
 
 
