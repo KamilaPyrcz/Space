@@ -1,7 +1,19 @@
+
+ $('#app').on( 'keypress', '.js-email',  function(e) {
+    if(e.which == 13) {
+        event.preventDefault();
+        validate();
+    }
+});
+
 $('#app').on('click', '.js-validate', function() {
     validate();
  });
  
+//  $('#app').on('focus', '.js-email', function(){
+   
+//     $(".js-result").text("");
+//   });
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -9,17 +21,19 @@ function validateEmail(email) {
 }
 
 function validate() {
-    var $result = $(".js-result");
+    var $invalidResult = $('.js-result');
+    var $validResult = $('.js-contact__form--subthanks');
     var email = $(".js-email").val();
-    $result.text("");
+
+    $invalidResult.text("");
+    $('.js-result').removeClass('js-email--invalid');
   
     if (validateEmail(email)) {
-      $result.text(email + "Thanks for Subscribing!");
-      $result.css("color", "green");
+      $validResult.addClass('js-email--valid');
+      $('.contact__form').addClass('contact__form--hide');
     } else {
-      $result.text(email + "Please enter a valid email address.");
-      $result.addClass("js-email--invalid");
-      
+      $invalidResult.text('Please enter a valid email address.');
+      $invalidResult.addClass('js-email--invalid');
     }
     return false;
   }
