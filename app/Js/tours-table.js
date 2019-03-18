@@ -1,6 +1,6 @@
 //// Tours-table content sorting events ////
 
-$('#app').on('click', '.tours-table__sortarrow', (event) => {
+$(document).on('click', '.tours-table__sortarrow', (event) => {
 
     const target = $(event.target);
     sortingArrowsActions(target);
@@ -8,7 +8,7 @@ $('#app').on('click', '.tours-table__sortarrow', (event) => {
 
 });
 
-$("#app").on('click', ':checkbox', () => {
+$(document).on('click', ':checkbox', () => {
 
     try {
         tableContent.filteredData = checkboxFilter();
