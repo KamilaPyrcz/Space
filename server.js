@@ -3,7 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose');
 
 
-var mongoDB = mongoose.connect('mongodb://localhost/tripAPI', { useNewUrlParser: true });
+var mongoDB = mongoose.connect('mongodb+srv://Kuser:usermongoatlas@clusterspace-r3mjs.mongodb.net/test?retryWrites=trueI', { useNewUrlParser: true });
 var db = mongoose.connection;
 mongoose.Promise = global.Promise;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
