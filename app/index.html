@@ -18,10 +18,12 @@
     <header>
         <nav class="navbar scrolled--backwards">
             <h4><a href="/" class="js-navigation-btn">Space Travel</a></h4>
-            <div>
+            <div class="navbar__navigation">
                 <li><a class="js-navigation-btn" href="/tours">Tours</a></li>
-                <li><a data-modal-label="register" class="js-user-modal">Register</a></li>
-                <li><a data-modal-label="signin" class="js-user-modal">Sign in</a></li>
+                <li>
+                    <a data-modal-label="register" class="js-user-modal">Register </a><a 
+                    data-modal-label="signin" class="js-user-modal">Sign in</a>
+                </li>
                 <li><a class="js-navigation-btn"href="/contact">Contact</a></li>
             </div>
         </nav>
@@ -173,7 +175,16 @@
                     <h3>Thanks for Subscribing!</h3>
                 </div>
             </section>
-        </script>
+            <!-- Footer -->
+        <footer>
+            <p>Spaaaace! ....space.space.space</p>
+            <ul>
+                <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+            </ul>
+        </footer>
+    </script>
 
 
     <!--Tours-->
@@ -256,6 +267,16 @@
                 </div>
             </div>
         </section>
+
+        <!-- Footer -->
+    <footer class="footer--tourspage">
+        <p>Spaaaace! ....space.space.space</p>
+        <ul>
+            <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
+        </ul>
+    </footer>
     </script>
 
     <!--Contact-->
@@ -284,7 +305,7 @@
 
                     <a href="#" class="user-massage__btn">Send</a>
                 </div>
-                <div class="location location__pic" style="background-image: url(assets/img/contact2.jfif);">
+                <div class="location location__pic location__pic:before" style="background-image: url(assets/img/contact3.jfif);">
                     <div class="location__info">
                         <div class="location__title">LOCATION</div>
                             <ul class="location__list">
@@ -309,15 +330,8 @@
             
             
         </section>
-    </script>
-
-
-    <!----------- VIEWED PAGE ----------->
-    <div id="app"></div>
-
-
-    <!-- Footer -->
-    <footer>
+        <!-- Footer -->
+    <footer class="footer--contactpage">
         <p>Spaaaace! ....space.space.space</p>
         <ul>
             <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
@@ -325,6 +339,14 @@
             <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
         </ul>
     </footer>
+    </script>
+
+
+    <!----------- VIEWED PAGE ----------->
+    <div id="app"></div>
+
+
+    
 
 
 </body>

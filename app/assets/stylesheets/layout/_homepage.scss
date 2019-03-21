@@ -2,6 +2,7 @@
 ///////// Hero block /////////
 
 .hero {
+  width: 100%;
   text-align: center;
   min-height: 100vh;
   color: map-deep-get($colors, 'foreground', 'light');
@@ -139,7 +140,6 @@ section:not(.hero):nth-child(even) {
   align-items: center;
   justify-content: center;
   width: 60%;
-
   @media screen and (max-width: 1200px) {
     flex-direction: column;
   }
@@ -156,6 +156,10 @@ section:not(.hero):nth-child(even) {
   font-size: 18px;
   color: map-deep-get($colors, 'primary', 'base');
   flex: 1;
+
+  @media (max-width: 450px) { 
+    min-width: 100%;
+  }
 
 }
 
