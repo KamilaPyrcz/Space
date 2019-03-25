@@ -13,10 +13,6 @@
     padding: 0;
     background-color: map-deep-get($colors, 'background', 'dark-1');
 
-    @media screen and (max-width: 620px) {
-        overflow: scroll;
-      }
-
     @media screen and (max-height: 650px) {
         overflow: scroll;
     }
@@ -29,11 +25,6 @@
     position: absolute;
     top: 0;
     overflow: hidden;  //adding overflow hidden
-
-    @media screen and (max-width: 620px) {
-        width: 0;
-        height: 0;
-      }
 
       @media screen and (max-height: 650px) {
         width: 0;
@@ -59,37 +50,17 @@
 .contact-container {
     display: flex;
     flex-direction: row;
-
     position: absolute;
     top: 13%;
-    min-width: 60%;
+    min-width: 70%;
     min-height: 500px;
     margin-top: 10px;
     background-color: map-deep-get($colors, 'background', 'dark-1');
     overflow: hidden;
     border-radius: 25px;
 
-      @media screen and (max-width: 1350px) {
-        min-width: 70%;
-      }
-
-      @media screen and (max-width: 1130px) {
-        min-width: 80%;
-      }
-
-      @media screen and (max-width: 800px) {
-        min-width: 90%;
-      }
-
-      @media screen and (max-width: 620px) {
-        flex-direction: column-reverse;
-        justify-content: flex-end;
-        min-height: 75%;
-        margin-bottom: 25px;
-      }
-
-      @media screen and (max-height: 800px) {
-        min-height: 535px;
+      @media screen and (max-height: 820px) {
+        min-height: 335px;
         top: 10%;
       }
     }
@@ -104,21 +75,7 @@
     background-color: map-deep-get($colors, 'background', 'dark-1');
     margin-bottom: 25px;
 
-    @media screen and (max-width: 700px) {
-        padding-left: 30px;
-        flex-basis: 55%;
-      }
-
-    @media screen and (max-width: 620px) {
-        padding-top: 20px;
-        padding-left: 30px;
-        flex-basis: 60%;
-      }
-
-      @media screen and (max-height: 800px) {
-        min-height: 330px;
-      }
-    }
+}
     
 
 .contact-form__title {
@@ -129,10 +86,6 @@
       font-family: $font-headline;
       font-weight: bold; 
       margin-bottom: 58px;
-      
-      @media screen and (max-width: 620px) {
-        margin-bottom: 25px;
-      }
     }
 }
 
@@ -149,24 +102,15 @@
     }
 }
 
+
+
 .user-massage {
     display: flex;
     flex-direction: column; 
     align-items: stretch;
-    max-width: 60%;
-
-    @media screen and (max-width: 1300px) {
-        max-width: 70%;
-      }
-
-    @media screen and (max-width: 750px) {
-        max-width: 90%;
-      }
-
-      @media screen and (max-width: 620px) {
-        max-width: 80%;
-      }
+    max-width: 70%;
 }
+
 .user-massage__input {
     background-color: map-deep-get($colors, 'foreground', 'light');
     padding: 15px;
@@ -175,21 +119,12 @@
     border-radius: 6px;
     color: map-deep-get($colors, 'background', 'dark');
     font-family: $font-text;
-
-    
-    @media screen and (max-width: 620px) {
-        padding: 10px;
-      }
 }
 
 .user-massage__input--massage {
     height: 150px;
     min-height: 80px;
     font-family: $font-text;
-
-    @media screen and (max-width: 620px) {
-        height: 100px;
-      }
 }
 
 .user-massage__btn {
@@ -210,23 +145,14 @@
 
     padding: 10px 20px;
     margin-top: 15px;
-
-    @media screen and (max-width: 620px) {
-        padding: 5px 20px;
-        margin-top: 10px;
-      }
 }
+
+
 
 .location {
     flex-basis: 40%;
-
-    @media screen and (max-width: 700px) {
-        flex-basis: 45%;
-      }
-      @media screen and (max-width: 620px) {
-        flex-basis: 40%;
-      }
 }
+
 .location__info {
     z-index: 1;
     display: flex;
@@ -236,29 +162,18 @@
     color: map-deep-get($colors, 'foreground', 'light');
     font-family: $font-headline;
     line-height: 2rem;
-
-    @media screen and (max-width: 620px) {
-        padding: 20px 20px;
-      }
 }
 
 .location__pic {
     background-size: cover;
     background-position: center;
-    
-    @media screen and (max-width: 620px) {
-        background-position: top;
-      }
-    
 }
+
 .location__title {
     @include fluid-text('big', 'base');
     font-weight: bold;
     margin-bottom: 15px;
-
-    @media screen and (max-width: 620px) {
-        @include text-setting('md');
-      }
+    
 }
 
 .location__list {
@@ -266,19 +181,114 @@
     span {
         @include text-setting('md');
         color:map-deep-get($colors, 'secondary', 'base');
-
-        @media screen and (max-width: 1180px) {
-            @include text-setting('base');
-          }
-    }
-
-    @media screen and (max-width: 1000px) {
-        @include text-setting('base');
-      }
+    } 
 }
+
+
 
 .footer--contactpage {
     position: absolute;
     bottom: 0;
     width: 100%;
+
+    @media screen and (max-height: 790px) {
+        display: none;
+      }
+}
+
+
+
+
+
+//// Media 
+
+
+
+@media screen and (max-width: 1200px) {
+   
+    .contact-container {
+        min-width: 80%;
+    }
+
+    .location__list {
+        @include text-setting('base');
+
+        span {
+            @include text-setting('base');
+        }   
+    }
+
+}
+    
+
+
+@media screen and (max-width: 800px) {
+
+    .contact-container {
+        min-width: 90%;
+    }
+
+    .contact-form {
+        padding-left: 30px;
+        flex-basis: 55%;
+        min-height: 330px;
+
+    }
+
+    .user-massage{
+        max-width: 90%;
+    }
+
+    .location {
+        flex-basis: 45%;
+    }
+
+}
+
+@media screen and (max-width: 620px) {
+
+    .contact-container {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        min-height: 75%;
+        margin-bottom: 25px; 
+    }
+
+    .contact-form {
+        padding-top: 20px;
+        padding-left: 30px;
+        flex-basis: 60%;
+    }
+
+    .contact-form__title {
+        
+        h2 {
+            margin-bottom: 25px;
+        }
+    }
+
+    .user-massage {
+        max-width: 80%;
+    }
+
+    .user-massage__input {
+        padding: 10px;
+    }
+
+    .user-massage__input--massage {
+        height: 100px;
+    }
+
+    .user-massage__btn {
+        padding: 5px 20px;
+        margin-top: 10px;
+    }
+
+    .location__info {
+        padding: 20px 20px;
+    }
+
+    .location__pic {
+        background-position: top;
+    }
 }

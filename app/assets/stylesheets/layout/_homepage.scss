@@ -43,7 +43,7 @@
 
 
 section:not(.hero):nth-child(even) {
-  background-color: #f5f5f5;
+  background-color: map-deep-get($colors, 'background', 'light');
 }
 
 ///////// Grid - Home Page /////////
@@ -193,7 +193,7 @@ section:not(.hero):nth-child(even) {
   display: inline;
   border-radius: 4px;
   padding-left: 5px;
-  color: #FF4B38;
+  color: map-deep-get($colors, 'error', 'base');
   font-size: 13px;
   
 }
