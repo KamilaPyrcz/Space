@@ -155,6 +155,7 @@
 
 .js-tours-table__row-element {
     width: 108px;
+    @include fluid-text('base', 'additional');
 }
 
 
@@ -189,7 +190,7 @@
     margin: 5px 4px;
     
     label {
-        @include text-setting('additional');
+        @include fluid-text('additional', 'xs');
         display: block;
         text-align: left;
         padding: 0 0 8px 5px;
@@ -328,6 +329,7 @@
 
         legend {
             padding-left: 5%;
+            @include fluid-text('base', 'additional');
         }
 
         label {
@@ -341,4 +343,27 @@
 
 @media screen and (max-width: 600px) {
 
+    .tours-table {
+ 
+        width: 95%;
+    }
+
+    .tours-filter {
+        width: 95%;
+        
+    }   
+    
+    .tours-filter__fieldset {
+        label {
+            text-align: center;
+        }
+    }
+}
+
+
+@media screen and (max-width: 380px) {
+
+    .js-tours-table__row-element {
+        @include fluid-text('additional', 'xs');
+    }
 }
