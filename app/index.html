@@ -192,79 +192,92 @@
             <section class="tours-section">
                 <div class="background-image" style="background-image: url(assets/img/main.jpg);"></div>
                 <h1 class="tours-section__title">Available Trips</h1>
+                
+
                 <div class="tours-offer">
                     <div class="tours-offer__background"></div>
-                    <div class="tours-filter">
-                        <form>
-                            <fieldset class="tours-filter__fieldset" id="destination">
-                                <legend>Destinations</legend>
-                                <label>
-                                    <input type="checkbox" value="Mars">
-                                    <span>Mars</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Venus">
-                                    <span>Venus</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Mercury">
-                                    <span>Mercury</span>
-                                </label>
-                            </fieldset>
-                            <fieldset class="tours-filter__fieldset" id="type">
-                                <legend >Types</legend>
-                                <label>
-                                    <input type="checkbox" value="Guided Trip">
-                                    <span>Guided Trips</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="Racing Trip">
-                                    <span>Racing Trips</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox"  value="Photo Trip">
-                                    <span>Photo Trips</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox"  value="Low orbit Trip">
-                                    <span>Low orbit Trips</span>
-                                </label>
-                            </fieldset>
-                            <fieldset class="tours-filter__fieldset" id="price">
-                                <legend>Price</legend>
-                                <div class="slide-container">
-                                    <input type="range" min="5000" max="9000" value="5000" class="slider" id="myRange" step="1000">
+
+                    <div class="table-wrapper">
+                            <div class="tours-filter">
+                                    <form>
+                                        <fieldset class="tours-filter__fieldset" id="destination">
+                                            <legend>Destinations</legend>
+                                            <div class="tours-filter__labels-group"> 
+                                                <label>
+                                                    <input type="checkbox" value="Mars">
+                                                    <span>Mars</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Venus">
+                                                    <span>Venus</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Mercury">
+                                                    <span>Mercury</span>
+                                                </label>
+                                            </div>
+                                           
+                                       
+                                        </fieldset>
+                                        <fieldset class="tours-filter__fieldset" id="type">
+                                            <legend >Types</legend>
+                                            <div class="tours-filter__labels-group">
+                                                    <label>
+                                                        <input type="checkbox" value="Guided Trip">
+                                                        <span>Guided Trips</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" value="Racing Trip">
+                                                        <span>Racing Trips</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox"  value="Photo Trip">
+                                                        <span>Photo Trips</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox"  value="Low orbit Trip">
+                                                        <span>Low orbit Trips</span>
+                                                    </label>
+                                                </div>
+                                              
+                                        </fieldset>
+                                        <!-- <fieldset class="tours-filter__fieldset" id="price">
+                                            <legend>Price</legend>
+                                            <div class="slide-container">
+                                                <input type="range" min="5000" max="9000" value="5000" class="slider" id="myRange" step="1000">
+                                            </div>
+                                        </fieldset>                     -->
+                                    </fieldset>                    
+                                        </fieldset>                    
+                                    </form>
+                            </div>
+            
+                            <div class="tours-table">
+                                <div class="tours-table__header">
+                                    <div class="tours-table__column-title">
+                                    <div>Destination</div>
+                                        <i type="button" id="destination" class="tours-table__sortarrow fas fa-sort-amount-up js-tours-table__sortarrow--sort-on"></i>
+                                    </div>
+                                    <div class="tours-table__column-title">
+                                        <div>Date</div>
+                                        <i type="button" id="data" class="tours-table__sortarrow fas fa-sort-amount-up"></i>
+                                    </div>
+                                    <div class="tours-table__column-title">
+                                        <div>Type</div>
+                                        <i type="button" id="type" class="tours-table__sortarrow fas fa-sort-amount-up"></i>
+                                    </div>
+                                    <div class="tours-table__column-title">
+                                        <div>Price</div>
+                                        <i type="button" id="price" class="tours-table__sortarrow fas fa-sort-amount-up"></i>
+                                    </div>
                                 </div>
-                            </fieldset>                    
-                        </fieldset>                    
-                            </fieldset>                    
-                        </form>
+                                <div class="js-tours-table__table-body">
+            
+                                </div>
+                            </div>
                     </div>
+                   
 
-
-                <div class="tours-table">
-                    <div class="tours-table__header">
-                        <div class="tours-table__column-title">
-                        <div>Destination</div>
-                            <i type="button" id="destination" class="tours-table__sortarrow fas fa-sort-amount-up js-tours-table__sortarrow--sort-on"></i>
-                        </div>
-                        <div class="tours-table__column-title">
-                            <div>Date</div>
-                            <i type="button" id="data" class="tours-table__sortarrow fas fa-sort-amount-up"></i>
-                        </div>
-                        <div class="tours-table__column-title">
-                            <div>Type</div>
-                            <i type="button" id="type" class="tours-table__sortarrow fas fa-sort-amount-up"></i>
-                        </div>
-                        <div class="tours-table__column-title">
-                            <div>Price</div>
-                            <i type="button" id="price" class="tours-table__sortarrow fas fa-sort-amount-up"></i>
-                        </div>
-                    </div>
-                    <div class="js-tours-table__table-body">
-
-                    </div>
-                </div>
             </div>
         </section>
 
