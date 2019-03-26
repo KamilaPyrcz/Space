@@ -170,7 +170,7 @@ footer {
 
   }
 
-  p {
+  span {
   @include text-setting('xs');
   margin-left: 30px;
   opacity: 0.6;
@@ -186,11 +186,12 @@ footer {
     margin-right: 15px;
     }
   
-    p {
+    span {
     @include text-setting('xs');
     margin-left: 0;
     margin-bottom: 3px;
     opacity: 0.6;
+   
     }
   
   }

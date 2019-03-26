@@ -14,6 +14,10 @@
     color: map-deep-get($colors, 'foreground', 'light');
 }
 
+.tours-section__background-image {
+    position: fixed;
+}
+
 .tours-section__title {
     order: 2;
     margin-top: 80px;
@@ -37,6 +41,8 @@
     flex-grow: 2;
     max-width: 100%;
     opacity: 0;
+    padding-bottom: 100px;
+    margin-top: 30px;
     animation: 1s tablelidefade 0.4s forwards;
 }
 
@@ -57,7 +63,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
     height: 0;
     background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,1));
     animation: 1s upslidebackground 0.4s forwards;
@@ -79,6 +84,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+
 }
 
 ///////// Tours Table /////////
@@ -103,7 +109,7 @@
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    flex-wrap: no-wrap;
+    flex-wrap: nowrap;
     overflow: hidden;
     padding: 20px 0px;
 }
@@ -254,6 +260,9 @@
 }
 
 
+
+
+
 ///// Media ////
 
 @media screen and (max-width: 1280px) {
@@ -264,6 +273,10 @@
     .tours-filter {
         width: 15%;
     }
+
+    .tours-section__title{
+        margin-bottom: 8%;
+    }
     
 }
 
@@ -272,12 +285,6 @@
     .tours-section {
         padding-top: 80px;
     }
-
-    .tours-section__title{
-        margin-bottom: 35px;
-    }
-
-
 
     .table-wrapper {
         flex-direction: column;
@@ -344,7 +351,6 @@
 @media screen and (max-width: 600px) {
 
     .tours-table {
- 
         width: 95%;
     }
 
@@ -366,4 +372,5 @@
     .js-tours-table__row-element {
         @include fluid-text('additional', 'xs');
     }
+    
 }
