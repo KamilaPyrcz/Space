@@ -33,12 +33,10 @@
  /// Rendering right Navbar style depending on window position -- other pages
 
  const uniNavController = function() {
+  const viewposition = ($(window).scrollTop());
 
-  const  viewposition = ($(window).scrollTop());
-
-  console.log(viewposition);
-  if (viewposition) {
-    classOnHeroExit();
+  if (viewposition >= 5) {
+    scrolledNav();
   }
   else {
     classesOnDefault();
@@ -46,9 +44,19 @@
 
 };
 
+
+
 const contactPNavController = function() {
   header.classList.add("js-scrolled--outofhero");
 };
+
+const scrolledNav = function() { 
+  const classCheck = (($('nav').hasClass("js-scrolled--outofhero")));
+  
+  if (!classCheck){
+    classOnHeroExit();
+  }
+}
 
 const classesOnMidHero = function() {
   header.classList.add("js-scrolled__navfade");

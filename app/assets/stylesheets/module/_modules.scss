@@ -38,6 +38,10 @@
     li {
       margin: 0 15px;
       @include fluid-text('base', 'additional');
+      
+      @media (max-width: 650px) {
+        margin: 0 10px;
+      }
     }
 
     span {
@@ -49,7 +53,6 @@
 
 .navbar__navigation {
   display: flex;
-  margin-right: -15px;
 }
 
 // additional classes - for styling NavBar depending on window position (nav-bar.js) //
