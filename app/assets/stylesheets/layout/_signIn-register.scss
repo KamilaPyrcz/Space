@@ -25,14 +25,14 @@
     align-items: stretch;
     position: relative;
     background-color: #f4f7fc;
-    overflow: hidden;
+    overflow: scroll;
 
     border: 1px solid #888;
     border-radius: 4px;
 
     height: 70%;
     width: 30%;
-    padding: 45px 60px;
+    padding: 45px 60px 0;
 
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 
@@ -94,11 +94,8 @@
   .user-modal__conditions-terms {
     padding: 20px 10px 10px;
     text-align: center;
-    position: absolute;
+    align-self: flex-end;
     width: 100%;
-    left: 0;
-    bottom: 0;
-
     @include text-setting('xs');
 
     span {
@@ -157,7 +154,7 @@
 
     .user-modal__container {
       width: 80%;
-      padding: 25px 40px;
+      padding: 25px 40px 0;
     }
   }
 
@@ -165,7 +162,7 @@
     
     .user-modal__container {
       width: 80%;
-      padding: 25px 15px;
+      padding: 25px 15px 0;
     }
   }
 
