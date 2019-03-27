@@ -5,16 +5,11 @@
   box-sizing: border-box;
 }
 
-  
-
-
-
 html {
     font-size: 18px;
     color: map-deep-get($colors, 'foreground', 'dark');
     font-family: $font-text;
-  }
-
+}
 
   
 h1 {

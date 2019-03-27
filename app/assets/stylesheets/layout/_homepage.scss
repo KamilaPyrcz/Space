@@ -27,11 +27,6 @@
   font-weight: bold; 
   padding-bottom: 20px;
   @include fluid-text('big', 'base');
-
-  @media screen and (max-width: 800px) {
-    font-weight: normal; 
-  }
-
 }
 
 .hp-section__title {
@@ -41,10 +36,13 @@
   margin-bottom: 25px;
 }
 
+  section:not(.hero):nth-child(even) {
+    background-color: map-deep-get($colors, 'background', 'light');
+  }
 
-section:not(.hero):nth-child(even) {
-  background-color: map-deep-get($colors, 'background', 'light');
-}
+
+
+
 
 ///////// Grid - Home Page /////////
 
@@ -57,7 +55,9 @@ section:not(.hero):nth-child(even) {
 }
 
 
+
 /// grid -- destination section ///
+
 
 .hp-grid--destination {
   li {
@@ -73,23 +73,17 @@ section:not(.hero):nth-child(even) {
 .hp-grid--destination {
   li.small {
     flex-basis: 30%;
-
-    @media screen and (max-width: 800px) {
-      flex-basis: 100%;
-    }
   }
 
   li.large {
     flex-basis: 70%;
-
-    @media screen and (max-width: 800px) {
-      flex-basis: 100%;
-    }
   }
 }
 
 
+
 /// grid -- packages section ///
+
 
 .hp-grid--packages {
   li {
@@ -98,16 +92,6 @@ section:not(.hero):nth-child(even) {
     padding: 50px;
     flex-basis: 50%;
     align-items: center;
-
-    @media screen and (max-width: 860px) {
-      padding: 25px;
-    }
-
-    @media screen and (max-width: 680px) {
-      flex-basis: 100%;
-
-    }
-
   }
 
   i {
@@ -119,12 +103,9 @@ section:not(.hero):nth-child(even) {
     color: map-deep-get($colors, 'primary', 'base');
   }
 
-  p {
-    @media screen and (max-width: 1000px) {
-      padding: 0px;
-    }
-  }
 }
+
+
 
 
 
@@ -140,9 +121,6 @@ section:not(.hero):nth-child(even) {
   align-items: center;
   justify-content: center;
   width: 60%;
-  @media screen and (max-width: 1200px) {
-    flex-direction: column;
-  }
 }
 
 .contact__form--hide {
@@ -156,22 +134,11 @@ section:not(.hero):nth-child(even) {
   font-size: 18px;
   color: map-deep-get($colors, 'primary', 'base');
   flex: 1;
-
-  @media (max-width: 450px) { 
-    min-width: 100%;
-  }
-
 }
-
 
 .contact__btn {
   padding: 18px 20px;
   margin-left: 20px;
-
-  @media screen and (max-width: 1200px) {
-    margin-top: 25px;
-    margin-left: 0;
-  }
 }
 
 .js-contact__form--subthanks {
@@ -185,7 +152,6 @@ section:not(.hero):nth-child(even) {
   font-family: $font-headline;
   text-align: center;
   padding: 15.77px 0;
-  
 }
 
 .js-email--invalid {
@@ -195,8 +161,70 @@ section:not(.hero):nth-child(even) {
   padding-left: 5px;
   color: map-deep-get($colors, 'error', 'base');
   font-size: 13px;
-  
 }
 
 
+
+
+
+///////// Media /////////
+
+
+@media screen and (max-width: 1280px) {
+
+  .contact__form {
+    flex-direction: column;
+  }
+
+  .hp-grid--packages {
+    p {
+        padding: 0px;
+    }
+  }
+
+  .contact__btn {
+    margin-top: 25px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  
+  .hero__title-quote {
+    font-weight: normal; 
+  }
+
+  .hp-grid--destination {
+    li.small {
+      flex-basis: 100%;
+    }
+
+    li.large {
+      flex-basis: 100%;
+      }
+  }
+
+  .hp-grid--packages {
+    li {
+    padding: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+
+  .hp-grid--packages {
+    li {
+        flex-basis: 100%;
+    }
+  }
+}
+
+@media (max-width: 450px) { 
+  
+  .contact__input {
+    min-width: 100%;
+  }
+
+}
 

@@ -1,21 +1,11 @@
-/// Rendering right Navbar style depending on window position
-
-setTimeout(function () {
-  navBarController();   
-}, 200); /// waiting for accurate navbar position
-
-
-window.addEventListener('scroll', function () {
-  navBarController();
-});
-
-
-
 
 
  const header = document.querySelector("nav");
 
- const navBarController = function() {
+ 
+/// Rendering right Navbar style depending on window position -- on home page
+
+ const homePageNavController = function() {
 
   let viewposition = $(window).scrollTop();
   let hero_height = ($('.hero').height());
@@ -37,6 +27,28 @@ window.addEventListener('scroll', function () {
         classesOnDefault();
 }
  };
+
+
+
+ /// Rendering right Navbar style depending on window position -- other pages
+
+ const uniNavController = function() {
+
+  const  viewposition = ($(window).scrollTop());
+
+  console.log(viewposition);
+  if (viewposition) {
+    classOnHeroExit();
+  }
+  else {
+    classesOnDefault();
+  }
+
+};
+
+const contactPNavController = function() {
+  header.classList.add("js-scrolled--outofhero");
+};
 
 const classesOnMidHero = function() {
   header.classList.add("js-scrolled__navfade");

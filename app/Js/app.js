@@ -36,12 +36,39 @@ window.addEventListener('load', function () {
     router.add('/', () => {
         let html = homeTemplate();
         el.html(html);
+
+
+        /// Rendering right Navbar style depending on window position
+
+        setTimeout(function () {
+            homePageNavController();   
+          }, 200); /// waiting for accurate navbar position
+          
+          
+          window.addEventListener('scroll', function () {
+            homePageNavController();
+          });
+          
+          
     });
 
 
     router.add('/tours', async () => {
         let html = toursTemplate();
         el.html(html);
+
+        /// navigation bar style and animation
+
+        setTimeout(function () {
+            uniNavController();
+        }, 200); /// waiting for accurate navbar position
+
+        window.addEventListener('scroll', function () {
+            uniNavController();
+        });
+
+        /// getting data for table from server 
+
         try {
             const response = await api.get('/tours');
             tableContent.dataSet = response.data;
@@ -56,9 +83,10 @@ window.addEventListener('load', function () {
     router.add('/contact', async () => {
         let html = contactTemplate();
         el.html(html);
-     
-    });
 
+        /// navigation bar style 
+        contactPNavController();
+    });
 
     router.navigateTo(window.location.pathname);
 
