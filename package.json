@@ -24,7 +24,7 @@
     "gulp-nodemon": "^2.4.2",
     "gulp-sass": "^4.0.2",
     "gulp-wait": "0.0.2",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "jquery": "^3.4.1",
     "mongodb": "^3.1.8",
     "mongoose": "^5.2.17",
